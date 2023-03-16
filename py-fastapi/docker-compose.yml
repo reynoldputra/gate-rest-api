@@ -13,6 +13,6 @@ services:
     volumes:
       - ./app:/code/app
     ports:
-      - 8000:8000
-    network_mode: host
+      - '8000:8000'
+    # network_mode: host
     restart: on-failure
