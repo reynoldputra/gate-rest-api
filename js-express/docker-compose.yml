@@ -1,0 +1,19 @@
+# still on progress, need Dockerfile
+version: "3.9"
+
+services:
+  api:
+    container_name: express-api-ate
+    build:
+      context: .
+      target: builder
+    working_dir: /code/app
+    command: npm run start 
+    environment:
+      DEBUG: 1
+    volumes:
+      - ./app:/code/app
+    ports:
+      - '3000:3000'
+    # network_mode: host
+    restart: on-failure
