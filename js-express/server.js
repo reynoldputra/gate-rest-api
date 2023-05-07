@@ -56,25 +56,10 @@ function logActivity(idKartu, idGate, jenisAktivitas, is_valid) {
     });
 }
 
-// Masuk Gate Endpoint
-// app.post('/masuk', async (req, res) => {
-//   const idkartu = req.body.idkartu;
-//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Kartu: ${idkartu}`);
-//   const idgate = req.body.idgate;
-//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Gate: ${idgate}`);
-//   try {
-//     const result = await runQuery(`select * from kartu_akses WHERE id_kartu_akses = '${idkartu}' AND is_aktif=1`);
-//     const _res = result.recordsets[0].length;
-//     console.log(_res);
-//     const result2 = await runQuery(`select * from register_gate WHERE id_register_gate = '${idgate}'`);
-//     const _res2 = result2.recordsets[0].length;
-//     console.log(_res2);
-//     if (Boolean(_res) && Boolean(_res2)) res.send('Berhasil masuk gerbang');
-//     else res.send('Gagal masuk gerbang');
-//   } catch (err) {
-//     console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ${err}`);
-//   }
-// });
+app.get('/', (req, res) => {
+  res.send('Hello test test');
+});
+
 app.post('/masuk', async (req, res) => {
   const idkartu = req.body.idkartu;
   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Kartu: ${idkartu}`);
@@ -104,25 +89,6 @@ app.post('/masuk', async (req, res) => {
     console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ${err}`);
   }
 });
-
-// app.post('/keluar', async (req, res) => {
-//   const idkartu = req.body.idkartu;
-//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Kartu: ${idkartu} AND is_aktif=1`);
-//   const idgate = req.body.idgate;
-//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Gate: ${idgate}`);
-//   try {
-//     const result = await runQuery(`select * from kartu_akses WHERE id_kartu_akses = '${idkartu}'`);
-//     const _res = result.recordsets[0].length;
-//     // console.log(_res);
-//     const result2 = await runQuery(`select * from register_gate WHERE id_register_gate = '${idgate}'`);
-//     const _res2 = result2.recordsets[0].length;
-//     // console.log(_res2);
-//     if (_res && _res2) res.send('Berhasil keluar gerbang');
-//     else res.send('Gagal keluar gerbang');
-//   } catch (err) {
-//     console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ${err}`);
-//   }
-// });
 
 app.post('/keluar', async (req, res) => {
   const idkartu = req.body.idkartu;
@@ -154,4 +120,48 @@ app.post('/keluar', async (req, res) => {
   }
 });
 
-app.listen(5000);
+app.listen(3000);
+
+
+// backup
+
+
+// Masuk Gate Endpoint
+// app.post('/masuk', async (req, res) => {
+//   const idkartu = req.body.idkartu;
+//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Kartu: ${idkartu}`);
+//   const idgate = req.body.idgate;
+//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Gate: ${idgate}`);
+//   try {
+//     const result = await runQuery(`select * from kartu_akses WHERE id_kartu_akses = '${idkartu}' AND is_aktif=1`);
+//     const _res = result.recordsets[0].length;
+//     console.log(_res);
+//     const result2 = await runQuery(`select * from register_gate WHERE id_register_gate = '${idgate}'`);
+//     const _res2 = result2.recordsets[0].length;
+//     console.log(_res2);
+//     if (Boolean(_res) && Boolean(_res2)) res.send('Berhasil masuk gerbang');
+//     else res.send('Gagal masuk gerbang');
+//   } catch (err) {
+//     console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ${err}`);
+//   }
+// });
+
+
+// app.post('/keluar', async (req, res) => {
+//   const idkartu = req.body.idkartu;
+//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Kartu: ${idkartu} AND is_aktif=1`);
+//   const idgate = req.body.idgate;
+//   console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ID Gate: ${idgate}`);
+//   try {
+//     const result = await runQuery(`select * from kartu_akses WHERE id_kartu_akses = '${idkartu}'`);
+//     const _res = result.recordsets[0].length;
+//     // console.log(_res);
+//     const result2 = await runQuery(`select * from register_gate WHERE id_register_gate = '${idgate}'`);
+//     const _res2 = result2.recordsets[0].length;
+//     // console.log(_res2);
+//     if (_res && _res2) res.send('Berhasil keluar gerbang');
+//     else res.send('Gagal keluar gerbang');
+//   } catch (err) {
+//     console.log(`[${new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' })}] ${err}`);
+//   }
+// });
